@@ -2,9 +2,9 @@ cmake_minimum_required(VERSION 3.3)
 project(Game)
 
 set(CMAKE_MODULE_PATH  "~/Documents/findCMake/" ${CMAKE_MODULE_PATH})
-set(EXECUTABLE_NAME "myproject")
+set(EXECUTABLE_NAME "DnDOverworldSimulator")
 set(SOURCE_FILES main.cpp)
-add_executable(${EXECUTABLE_NAME} main.cpp)
+add_executable(${EXECUTABLE_NAME} main.cpp Tile.cpp Tile.h)
 
 
 
