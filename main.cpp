@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Tile.h"
+#include "EventHandler.h"
 
 
 #define GAMESTATE_MENU        0
@@ -9,30 +10,26 @@
 
 int main()
 {
-  sf::RenderWindow window(sf::VideoMode(1000, 1000), "ICH BIN!");
+  sf::RenderWindow window(sf::VideoMode(400, 400), "ICH BIN!");
 
   int GameState = GAMESTATE_MENU;
-
+  sf::Clock main_clock;
+  main_clock.restart();
+  EventHandler test(&GameState);
 
 
   while (window.isOpen())
   {
+    double elapsedTime = main_clock.getElapsedTime().asSeconds();
     sf::Event event;
+
     while (window.pollEvent(event))
     {
-      switch(GameState){
-        case GAMESTATE_MENU:
-          break;
-        case GAMESTATE_EDITOR:
-          break;
-        case GAMESTATE_SIMULATION:
-          break;
-        default:
-          break;
-      }
       if (event.type == sf::Event::Closed)
         window.close();
+      test.handleEvent(event);
     }
+
     window.clear();
     switch(GameState){
       case GAMESTATE_MENU:
@@ -46,6 +43,7 @@ int main()
     }
 
     window.display();
+    main_clock.restart();
   }
 
   return 0;
