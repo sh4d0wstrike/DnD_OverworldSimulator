@@ -5,13 +5,11 @@
 #ifndef GAME_EVENTHANDLER_H
 #define GAME_EVENTHANDLER_H
 
-#define GAMESTATE_MENU        0
-#define GAMESTATE_EDITOR      1
-#define GAMESTATE_SIMULATION  2
 
 #include <iostream>
 #include <SFML/Window/Event.hpp>
 #include <SFML/System/Time.hpp>
+#include "constants.h"
 
 class EventHandler {
 public:
