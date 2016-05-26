@@ -3,6 +3,7 @@
 //
 
 
+
 #include "EventHandler.h"
 
 EventHandler::EventHandler(int* game_state) : game_state_(game_state)
@@ -16,7 +17,7 @@ bool EventHandler::changeState(int new_state)
   return true;
 }
 
-int EventHandler::handleEvent(sf::Event event)
+int EventHandler::handleEvent(sf::Event event, sf::Time delta_time)
 {
   switch(*game_state_)
   {

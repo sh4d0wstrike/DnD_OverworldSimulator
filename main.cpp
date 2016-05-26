@@ -27,7 +27,7 @@ int main()
     {
       if (event.type == sf::Event::Closed)
         window.close();
-      test.handleEvent(event);
+      test.handleEvent(event, main_clock.getElapsedTime());
     }
 
     window.clear();
@@ -49,4 +49,26 @@ int main()
   return 0;
 }
 
+void eventLoop(EventHandler &event_handler, sf::RenderWindow &window)
+{
+  sf::Clock event_timer;
+  sf::Event event;
+  while(window.isOpen())
+  {
+    while(window.pollEvent(event))
+    {
+      event_handler.handleEvent(event, event_timer.getElapsedTime());
+    }
+    event_timer.restart();
+  }
+}
 
+void drawLoop(sf::RenderWindow &window)
+{
+  while(window.isOpen())
+  {
+    window.clear(sf::Color::Black);
+    //DrawManager.draw
+    window.display();
+  }
+}

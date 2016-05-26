@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include <SFML/Window/Event.hpp>
+#include <SFML/System/Time.hpp>
 
 class EventHandler {
 public:
@@ -18,7 +19,7 @@ public:
 
   bool changeState(int new_state);
 
-  int handleEvent(sf::Event event);
+  int handleEvent(sf::Event event, sf::Time delta_time);
 
 
 private:
