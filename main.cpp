@@ -24,26 +24,14 @@ int main()
   {
     double elapsedTime = main_clock.getElapsedTime().asSeconds();
     sf::Event event;
+    
+    window.clear();
 
     while (window.pollEvent(event))
     {
       if (event.type == sf::Event::Closed)
         window.close();
       test.handleEvent(event, main_clock.getElapsedTime());
-    }
-
-    window.clear();
-    switch(GameState){
-      case GAMESTATE_MENU:
-      {
-        window.draw(sprite);
-      }
-      case GAMESTATE_EDITOR:
-        break;
-      case GAMESTATE_SIMULATION:
-        break;
-      default:
-        break;
     }
 
     window.display();
