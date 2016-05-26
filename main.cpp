@@ -6,12 +6,18 @@
 
 int main()
 {
-  sf::RenderWindow window(sf::VideoMode(400, 400), "ICH BIN!");
+  sf::RenderWindow window(sf::VideoMode(400, 400), "ICH BIN NICHT ALLEIN!");
 
   int GameState = GAMESTATE_MENU;
   sf::Clock main_clock;
   main_clock.restart();
   EventHandler test(&GameState);
+  
+  sf::Texture testbild;
+  testbild.loadFromFile("../Images/testbild.png");
+
+  sf::Sprite sprite;
+  sprite.setTexture(testbild);
 
 
   while (window.isOpen())
@@ -29,7 +35,9 @@ int main()
     window.clear();
     switch(GameState){
       case GAMESTATE_MENU:
-        break;
+      {
+        window.draw(sprite);
+      }
       case GAMESTATE_EDITOR:
         break;
       case GAMESTATE_SIMULATION:
