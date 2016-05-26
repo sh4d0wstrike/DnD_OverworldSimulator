@@ -25,14 +25,17 @@ int main()
     double elapsedTime = main_clock.getElapsedTime().asSeconds();
     sf::Event event;
 
-    window.clear();
-
     while (window.pollEvent(event))
     {
       if (event.type == sf::Event::Closed)
         window.close();
       test.handleEvent(event, main_clock.getElapsedTime());
     }
+
+
+    window.clear();
+    window.draw(sprite);
+
 
     window.display();
     main_clock.restart();
