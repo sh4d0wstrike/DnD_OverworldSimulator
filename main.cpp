@@ -12,7 +12,7 @@ int main()
   sf::Clock main_clock;
   main_clock.restart();
   EventHandler test(&GameState);
-  
+
   sf::Texture testbild;
   testbild.loadFromFile("../Images/testbild.png");
 
