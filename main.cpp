@@ -2,11 +2,7 @@
 #include <iostream>
 #include "Tile.h"
 #include "EventHandler.h"
-
-
-#define GAMESTATE_MENU        0
-#define GAMESTATE_EDITOR      1
-#define GAMESTATE_SIMULATION  2
+#include "constants.h"
 
 int main()
 {

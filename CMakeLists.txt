@@ -4,7 +4,7 @@ project(Game)
 set(CMAKE_MODULE_PATH  "~/Documents/findCMake/" ${CMAKE_MODULE_PATH})
 set(EXECUTABLE_NAME "DnDOverworldSimulator")
 set(SOURCE_FILES main.cpp)
-add_executable(${EXECUTABLE_NAME} main.cpp Tile.cpp Tile.h EventHandler.cpp EventHandler.h)
+add_executable(${EXECUTABLE_NAME} main.cpp Tile.cpp Tile.h EventHandler.cpp EventHandler.h Camera.cpp Camera.h constants.h)
 
 
 
