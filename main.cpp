@@ -33,18 +33,8 @@ int main()
     }
 
     window.clear();
-    switch(GameState){
-      case GAMESTATE_MENU:
-      {
-        window.draw(sprite);
-      }
-      case GAMESTATE_EDITOR:
-        break;
-      case GAMESTATE_SIMULATION:
-        break;
-      default:
-        break;
-    }
+    window.draw(sprite);
+
 
     window.display();
     main_clock.restart();
