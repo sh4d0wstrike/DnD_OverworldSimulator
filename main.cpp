@@ -4,66 +4,80 @@
 #include "EventHandler.h"
 #include "constants.h"
 
+
+void eventLoop(EventHandler &event_handler);
+void drawLoop();
+
+
+sf::RenderWindow* window;
+
 int main()
 {
-  sf::RenderWindow window(sf::VideoMode(400, 400), "ICH BIN NICHT ALLEIN!");
+  window = new sf::RenderWindow(sf::VideoMode(400, 400), "ICH BIN NICHT ALLEIN!");
 
   int GameState = GAMESTATE_MENU;
   sf::Clock main_clock;
   main_clock.restart();
-  EventHandler test(&GameState);
+  EventHandler event_handler(&GameState);
 
+
+
+  sf::Clock event_timer;
+  sf::Event event;
+  while(window->isOpen())
+  {
+    while(window->pollEvent(event))
+    {
+      if(event.type == sf::Event::Closed)
+      {
+        window->close();
+      }
+      else
+      {
+        event_handler.handleEvent(event, event_timer.getElapsedTime());
+      }
+    }
+    event_timer.restart();
+
+    window->clear();
+
+
+    window->display();
+  }
+
+
+
+
+
+
+  std::cout << "<------------------------------------>" << std::endl << "ShutDown" << std::endl << "<------------------------------------>" << std::endl;
+
+  delete window;
+
+  return 0;
+}
+
+void eventLoop(EventHandler &event_handler)
+{
+
+}
+
+void drawLoop()
+{
   sf::Texture testbild;
   testbild.loadFromFile("../Images/testbild.png");
 
   sf::Sprite sprite;
   sprite.setTexture(testbild);
 
-
-  while (window.isOpen())
+  while(window->isOpen())
   {
-    double elapsedTime = main_clock.getElapsedTime().asSeconds();
-    sf::Event event;
-
-    while (window.pollEvent(event))
-    {
-      if (event.type == sf::Event::Closed)
-        window.close();
-      test.handleEvent(event, main_clock.getElapsedTime());
-    }
+    std::cout << "WHAT?!" << std::endl;
+    window->clear(sf::Color::Black);
 
 
-    window.clear();
-    window.draw(sprite);
+    window->draw(sprite);
 
-
-    window.display();
-    main_clock.restart();
-  }
-
-  return 0;
-}
-
-void eventLoop(EventHandler &event_handler, sf::RenderWindow &window)
-{
-  sf::Clock event_timer;
-  sf::Event event;
-  while(window.isOpen())
-  {
-    while(window.pollEvent(event))
-    {
-      event_handler.handleEvent(event, event_timer.getElapsedTime());
-    }
-    event_timer.restart();
-  }
-}
-
-void drawLoop(sf::RenderWindow &window)
-{
-  while(window.isOpen())
-  {
-    window.clear(sf::Color::Black);
-    //DrawManager.draw
-    window.display();
+    window->display();
   }
 }
