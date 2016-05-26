@@ -24,7 +24,7 @@ int main()
   {
     double elapsedTime = main_clock.getElapsedTime().asSeconds();
     sf::Event event;
-    
+
 
     while (window.pollEvent(event))
     {
