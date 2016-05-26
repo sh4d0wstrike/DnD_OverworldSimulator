@@ -4,7 +4,7 @@
 
 #include "Tile.h"
 
-Tile::Tile(int property, sf::IntRect tex_pos) : property_(property), tex_pos_(tex_pos)
+Tile::Tile(sf::IntRect tex_pos , int property) :  tex_pos_(tex_pos) , property_(property)
 {
 }
 
@@ -16,4 +16,14 @@ sf::IntRect Tile::getTexPos()
 int Tile::getProp()
 {
   return property_;
+}
+
+void Tile::setProp(int prop)
+{
+  property_ = prop;
+}
+
+void Tile::setTexPos(sf::IntRect pos)
+{
+  tex_pos_ = pos;
 }

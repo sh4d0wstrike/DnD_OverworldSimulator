@@ -3,6 +3,7 @@
 #include "Tile.h"
 #include "EventHandler.h"
 #include "constants.h"
+#include "Cluster.h"
 
 int main()
 {
@@ -19,6 +20,7 @@ int main()
   sf::Sprite sprite;
   sprite.setTexture(testbild);
 
+  Cluster testCluster;
 
   while (window.isOpen())
   {
@@ -35,7 +37,7 @@ int main()
 
 
     window.clear();
-    window.draw(sprite);
+    testCluster.draw(window);
 
 
     window.display();

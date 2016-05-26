@@ -7,13 +7,16 @@
 
 
 #include <SFML/Graphics/Rect.hpp>
+#include "constants.h"
 
 class Tile {
 public:
-  Tile(int property, sf::IntRect tex_pos);
+  Tile(sf::IntRect tex_pos = GRASS , int property = 0);
 
   sf::IntRect getTexPos();
   int getProp();
+  void setProp(int prop);
+  void setTexPos(sf::IntRect pos);
 
 private:
   int property_;
